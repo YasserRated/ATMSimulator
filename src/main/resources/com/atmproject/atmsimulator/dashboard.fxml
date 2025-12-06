@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
+<VBox spacing="12" alignment="CENTER"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.atmproject.atmsimulator.DashboardController"
+      style="-fx-padding: 20;">
 
-</AnchorPane>
+    <Label text="ATM Dashboard" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <Label fx:id="balanceLabel" text="Balance: $0" style="-fx-font-size: 18px;"/>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Deposit" onAction="#handleDeposit" prefWidth="100"/>
+        <Button text="Withdraw" onAction="#handleWithdraw" prefWidth="100"/>
+        <Button text="Check Balance" onAction="#handleCheckBalance" prefWidth="120"/>
+    </HBox>
+
+    <Label text="Transaction History" style="-fx-font-size: 16px; -fx-underline: true;"/>
+    <ListView fx:id="historyList" prefHeight="200" prefWidth="360"/>
+
+    <Button text="Logout" onAction="#handleLogout" style="-fx-background-color: #cc0000; -fx-text-fill: white;" />
+</VBox>
