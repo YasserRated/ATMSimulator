@@ -29,7 +29,7 @@ public class LoginController {
                 Scene scene = new Scene(loader.load());
 
                 DashboardController controller = loader.getController();
-                controller.setAccount(account); // اعطاء الحساب للـ Dashboard
+                controller.setAccount(account);
 
                 Stage stage = new Stage();
                 stage.setTitle("ATM Dashboard");

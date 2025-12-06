@@ -20,10 +20,10 @@ public class DashboardController {
     @FXML
     private ListView<String> historyList;
 
-    private Account account; // الحساب الحالي
+    private Account account;
     private final ObservableList<Transaction> transactions = FXCollections.observableArrayList();
 
-    private List<Account> allAccounts; // كل الحسابات لتحفظ الملف بعد أي تعديل
+    private List<Account> allAccounts;
 
     @FXML
     public void initialize() {
@@ -33,22 +33,22 @@ public class DashboardController {
         });
     }
 
-    // يتم استدعاؤها بعد فتح Dashboard
+
     public void setAccount(Account account) {
         this.account = account;
         balanceLabel.setText(String.format("Balance: $%.2f", account.getBalance()));
 
-        // Load all accounts for saving changes later
+
         allAccounts = FileManager.loadAccounts();
 
-        // Show login transaction
+
         addTransaction(new Transaction(Transaction.Type.LOGIN));
     }
 
     private void addTransaction(Transaction t) {
         transactions.add(t);
         account.getHistory().add(t);
-        FileManager.saveAccounts(allAccounts); // حفظ البيانات بعد كل عملية
+        FileManager.saveAccounts(allAccounts);
     }
 
     private void refreshHistoryView() {
